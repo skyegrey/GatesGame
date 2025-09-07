@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dp3icp3f2v63p"]
+
+[ext_resource type="Texture2D" uid="uid://d0ygpvbl3smgt" path="res://Assets/Projectiles/centaur-arrow.png" id="1_n664x"]
+[ext_resource type="Script" uid="uid://g3lcngvdan2b" path="res://Scripts/projectile_node.gd" id="1_q51jf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q51jf"]
+atlas = ExtResource("1_n664x")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdwg2"]
+atlas = ExtResource("1_n664x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asa5t"]
+atlas = ExtResource("1_n664x")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v44bv"]
+atlas = ExtResource("1_n664x")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfo5r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q51jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdwg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asa5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v44bv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q51jf"]
+size = Vector2(11, 5)
+
+[node name="ProjectileNode" type="Node2D"]
+script = ExtResource("1_q51jf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pfo5r")
+frame_progress = 0.27106
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16384
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(17.5, 0.5)
+shape = SubResource("RectangleShape2D_q51jf")

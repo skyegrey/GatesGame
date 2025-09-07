@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://d10qjmkncla2q"]
+
+[ext_resource type="Texture2D" uid="uid://dmc1kgbend7e8" path="res://Assets/PlayerSprite/CentaurLady-Sheet.png" id="1_gkfvj"]
+[ext_resource type="Script" uid="uid://b7ut2tsybpllj" path="res://Scripts/team_character.gd" id="1_xq7wy"]
+[ext_resource type="Texture2D" uid="uid://bpk4krffitmcf" path="res://Assets/PlayerSprite/FastShot-Sheet.png" id="2_3yfr8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfh0r"]
+atlas = ExtResource("2_3yfr8")
+region = Rect2(0, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvuew"]
+atlas = ExtResource("2_3yfr8")
+region = Rect2(80, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pgj3"]
+atlas = ExtResource("2_3yfr8")
+region = Rect2(160, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suvbb"]
+atlas = ExtResource("2_3yfr8")
+region = Rect2(240, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qumc8"]
+atlas = ExtResource("2_3yfr8")
+region = Rect2(320, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbgu0"]
+atlas = ExtResource("2_3yfr8")
+region = Rect2(400, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yfr8"]
+atlas = ExtResource("1_gkfvj")
+region = Rect2(0, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf5mf"]
+atlas = ExtResource("1_gkfvj")
+region = Rect2(144, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfpwg"]
+atlas = ExtResource("1_gkfvj")
+region = Rect2(288, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d2gn"]
+atlas = ExtResource("1_gkfvj")
+region = Rect2(432, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjicr"]
+atlas = ExtResource("1_gkfvj")
+region = Rect2(576, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlpuf"]
+atlas = ExtResource("1_gkfvj")
+region = Rect2(720, 0, 144, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hptm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfh0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvuew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pgj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suvbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qumc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbgu0")
+}],
+"loop": false,
+"name": &"attacking",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yfr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf5mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfpwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d2gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjicr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlpuf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="TeamCharacterNode" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_xq7wy")
+metadata/_edit_lock_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_hptm8")
+autoplay = "default"
+frame = 5
+frame_progress = 0.583332
+metadata/_edit_lock_ = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1000.0
+autostart = true

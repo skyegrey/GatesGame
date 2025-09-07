@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://4gnb7pabvxut"]
+
+[ext_resource type="Script" uid="uid://16hxl0mbrmv1" path="res://Scripts/gate.gd" id="1_svxrh"]
+[ext_resource type="FontFile" uid="uid://d2cmmwuf6kggo" path="res://Assets/Txpeng(5).ttf" id="2_8qb0t"]
+[ext_resource type="Texture2D" uid="uid://5vi7alu8tq8x" path="res://Assets/Gates/gate-pillar.png" id="3_krcpe"]
+[ext_resource type="Texture2D" uid="uid://cuepolony7kbl" path="res://Assets/Gates/GateHolo.png" id="4_tfptj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_svxrh"]
+radius = 10.5
+height = 53.0
+
+[node name="GateNode" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_svxrh")
+
+[node name="GateLabel" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = -35.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = -7.0
+theme_override_fonts/normal_font = ExtResource("2_8qb0t")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]+2"
+
+[node name="RightPillar" type="Sprite2D" parent="."]
+position = Vector2(-9, -12)
+texture = ExtResource("3_krcpe")
+
+[node name="LeftPillar" type="Sprite2D" parent="."]
+position = Vector2(9, 19)
+texture = ExtResource("3_krcpe")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 3.5)
+shape = SubResource("CapsuleShape2D_svxrh")
+metadata/_edit_lock_ = true
+
+[node name="GateHolo" type="Sprite2D" parent="."]
+texture = ExtResource("4_tfptj")

@@ -1,0 +1,89 @@
+- Mechanical stuff
+	- [x] Spawn the projectile during the shot
+		- [x] Projectile movement
+		- [x] Projectile manager reference hooked on team member spawn
+	- [x] Enemy Spawning
+		- [x] Enemy node prefab
+	- [x] Enemy hit by projectile
+	- [x] Gate spawning mechanism
+		- [x] Replace sprites with gate sprite
+			- [x] Create a gate node
+			- [x] Split up the sprites for y sorting
+		- [x] Gate value display on top
+			- [x] Create custom font?
+	- [x] Gate value rng
+	- [x] Boss at the end of the level
+	- [x] Cap player movement to top of screen
+	- [x] Initial player spawn has scene references set correctly
+	- [x] Teamates have delayed movement
+		- [x] Create follow point
+		- [x] Update gate collision area to be child of followpoint
+		- [x] Have characters lerp to the followpoint on movement
+	- [x] Add random attack delay
+	- [ ] Gameplay loop
+		- [x] Enemies attack player at some specific area
+			- [x] Stop at specific x value
+			- [x] Play attack animation
+			- [x] Keyframe signal
+			- [x] Player loses team member
+			- [x] Damage flash
+			- [x] Game over trigger on last player
+		- [x] Boss spawning changes
+			- [x] Boss stops at specific area
+			- [x] Boss attack mechanics
+		- [x] Boss attack hitbox
+		- [x] Boss HP Bar
+		- [x] On boss spawn, display HP bar (not before)
+		- [x] On boss defeat, complete level
+	- [ ] Rougelike elements (you must choose from 3 things)
+		- [ ] Cards on boss defeat
+		- [ ] Powerup Icons
+		- [ ] Powerups (lv 1 - 7)
+			- [ ] Multishot Chance (50 -> 200%)
+			- [ ] AoE Shot Chance (50 -> 200%)
+			- [ ] Shot cooldown
+			- [ ] Piercing
+			- [ ] Different attacks
+				- [ ] BEEG ARROW
+				- [ ] Tornado
+				- [ ] Spring Rain
+			- [ ] Gate upgrades
+				- [ ] Gate Shooting
+				- [ ] Gate Base amount
+			- [ ] Slowing Shot
+	- [ ] Screen scale with window scale
+	- [ ] cleanup tween releases
+	- [ ] Balancing
+	- [ ] Multiple gates spawn at once
+	- [ ] Negative gates
+	- [ ] Game Over screen
+	- [ ] Main Menu Screen
+	- [ ] Enemies play death animation on kill
+
+- Visual
+	- [x] Decide gate & number placement
+	- [x] Replace the gates with the much nicer version ty @txpeng
+	- Gate numbers -> txpeng
+	- [x] Grass
+	- [ ] Background
+
+- Sauce (pyome please save me <3)
+	- [ ] On hit visual
+	- [ ] Background scroll (ty meisaka :D)
+	- [x] Damage flash on hit
+	- [ ] Shot SFX
+	- [ ] Hit SFX
+	- [ ] Gate SFX
+	- [ ] Music
+	- [ ] Fix damage tween overlap?
+	- [ ] Move twoards player in range?
+
+- Release
+	- [ ] Itch.io version
+	- [ ] Play store
+	- [ ] App store
+
+### Post Release
+
+- [ ] Different character gates
+- [ ] Different enemy types
