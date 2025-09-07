@@ -20,7 +20,7 @@
 		- [x] Update gate collision area to be child of followpoint
 		- [x] Have characters lerp to the followpoint on movement
 	- [x] Add random attack delay
-	- [ ] Gameplay loop
+	- [x] Gameplay loop
 		- [x] Enemies attack player at some specific area
 			- [x] Stop at specific x value
 			- [x] Play attack animation
@@ -39,13 +39,12 @@
 	- [ ] Rougelike elements (you must choose from 3 things)
 		- [x] Cards on boss defeat
 		- [x] Powerup Icons
-		- [ ] Powerups (lv 1 - 7)
+		- [ ] Powerups
 			- [ ] Multishot Chance (50 -> 200%)
 			- [ ] AoE Shot Chance (50 -> 200%)
 			- [ ] Shot cooldown
 			- [ ] Piercing
 			- [ ] Different attacks
-				- [ ] BEEG ARROW
 				- [ ] Tornado
 				- [ ] Spring Rain
 			- [ ] Gate upgrades
