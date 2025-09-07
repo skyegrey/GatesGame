@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://egwan75w81vc"]
+
+[ext_resource type="Texture2D" uid="uid://108m2dgsfk6h" path="res://Assets/PowerupIcons/460_Air_Gust.png" id="1_hacmr"]
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_l0046"]
+
+[resource]
+script = ExtResource("1_l0046")
+Name = "Tornado"
+Icon = ExtResource("1_hacmr")
+Description = "Unlocks a powerful Tornado attack"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

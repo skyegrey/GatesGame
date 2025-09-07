@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://c3utbxlu1l6av"]
+
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_and2n"]
+[ext_resource type="Texture2D" uid="uid://b776gba1r3i72" path="res://Assets/PowerupIcons/524_Bowman_SingleShot.png" id="1_sk6t1"]
+
+[resource]
+script = ExtResource("1_and2n")
+Name = "Piercing Shot"
+Icon = ExtResource("1_sk6t1")
+Description = "Increases piercing power of arrows"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

@@ -35,9 +35,10 @@
 		- [x] Boss HP Bar
 		- [x] On boss spawn, display HP bar (not before)
 		- [x] On boss defeat, complete level
+	- [ ] Replace HP Bar texture with the stuff from txpeng that looks way better in every way and is all pixely and cool 
 	- [ ] Rougelike elements (you must choose from 3 things)
-		- [ ] Cards on boss defeat
-		- [ ] Powerup Icons
+		- [x] Cards on boss defeat
+		- [x] Powerup Icons
 		- [ ] Powerups (lv 1 - 7)
 			- [ ] Multishot Chance (50 -> 200%)
 			- [ ] AoE Shot Chance (50 -> 200%)
@@ -51,6 +52,9 @@
 				- [ ] Gate Shooting
 				- [ ] Gate Base amount
 			- [ ] Slowing Shot
+		- [x] Card rolling
+		- [ ] Card selection
+		- [ ] Application of powerup
 	- [ ] Screen scale with window scale
 	- [ ] cleanup tween releases
 	- [ ] Balancing
@@ -68,6 +72,7 @@
 	- [ ] Background
 
 - Sauce (pyome please save me <3)
+	- [ ] Replace HB bar with the SUPER SLICK VERSION (ty @txpeng <3) 
 	- [ ] On hit visual
 	- [ ] Background scroll (ty meisaka :D)
 	- [x] Damage flash on hit

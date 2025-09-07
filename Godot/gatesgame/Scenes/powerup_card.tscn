@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj7ey8hpresxb"]
+
+[ext_resource type="Texture2D" uid="uid://bqae1urhpcd4m" path="res://Assets/Backgrounds/grey_panel.png" id="1_mipqx"]
+[ext_resource type="Texture2D" uid="uid://cmkbp87sbtsst" path="res://Assets/PowerupIcons/507_Bowman_Dexterity_B.png" id="2_grari"]
+[ext_resource type="Script" uid="uid://bp2f7nmaopu27" path="res://Scenes/powerup_card.gd" id="2_moysd"]
+
+[node name="CardBackground" type="NinePatchRect"]
+self_modulate = Color(0.388235, 0.607843, 1, 1)
+custom_minimum_size = Vector2(150, 200)
+texture = ExtResource("1_mipqx")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("2_moysd")
+
+[node name="CardMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="CardInformationVBox" type="VBoxContainer" parent="CardMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CardName" type="Label" parent="CardMarginContainer/CardInformationVBox"]
+layout_mode = 2
+text = "Placeholder Powerup"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PowerupIcon" type="TextureRect" parent="CardMarginContainer/CardInformationVBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_grari")
+stretch_mode = 5
+
+[node name="CardDescription" type="Label" parent="CardMarginContainer/CardInformationVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Placeholder description that tells you what the powerup will do"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

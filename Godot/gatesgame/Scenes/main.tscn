@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nqh3rmvwkw82"]
+[gd_scene load_steps=13 format=3 uid="uid://nqh3rmvwkw82"]
 
 [ext_resource type="Script" uid="uid://bp3xvmv1rx2py" path="res://Scripts/player_node.gd" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://cyb44puy2imki" path="res://Scripts/main.gd" id="1_kry3j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cef3np6egmhui" path="res://Scripts/enemy_manager.gd" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://cqslsgmt7paq4" path="res://Assets/Backgrounds/modal-background.png" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://bpdsafvwf3ys0" path="res://Scripts/boss_fight_display_ui.gd" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://b4n10lmjwb1ks" path="res://Scenes/card_select_ui.gd" id="8_hptm8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kry3j"]
 
@@ -105,6 +106,7 @@ texture = ExtResource("5_21xkr")
 
 [node name="UI" type="Control" parent="."]
 process_mode = 3
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,21 +162,46 @@ text = "Goblin Chieftain"
 horizontal_alignment = 1
 
 [node name="CardSelectUI" type="MarginContainer" parent="UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 360.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("8_hptm8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/CardSelectUI"]
+[node name="CardSelectUIVbox" type="VBoxContainer" parent="UI/CardSelectUI"]
 layout_mode = 2
+
+[node name="TextLabelsVbox" type="VBoxContainer" parent="UI/CardSelectUI/CardSelectUIVbox"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/CardSelectUI/CardSelectUIVbox/TextLabelsVbox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center] Level Complete!"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/CardSelectUI"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI/CardSelectUI/CardSelectUIVbox/TextLabelsVbox"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
+bbcode_enabled = true
+text = "[center]Chose an Upgrade"
 
-[node name="MarginContainer" type="TextureRect" parent="UI/CardSelectUI/HBoxContainer"]
+[node name="CardDisplayMarginContainer" type="MarginContainer" parent="UI/CardSelectUI/CardSelectUIVbox"]
 layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CardSelectUI/CardSelectUIVbox/CardDisplayMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1

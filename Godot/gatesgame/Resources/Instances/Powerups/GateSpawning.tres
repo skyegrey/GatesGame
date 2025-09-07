@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://b2oqa6ou31rqh"]
+
+[ext_resource type="Texture2D" uid="uid://df0itluot4ik2" path="res://Assets/PowerupIcons/GateAmount.png" id="1_6jatm"]
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_q5wnt"]
+
+[resource]
+script = ExtResource("1_q5wnt")
+Name = "Gate Spawning"
+Icon = ExtResource("1_6jatm")
+Description = "Increases frequency of gate spawns"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

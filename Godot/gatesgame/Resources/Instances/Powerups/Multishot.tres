@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://b82og2gasx21s"]
+
+[ext_resource type="Texture2D" uid="uid://cmkbp87sbtsst" path="res://Assets/PowerupIcons/507_Bowman_Dexterity_B.png" id="1_1akxk"]
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_15jif"]
+
+[resource]
+script = ExtResource("1_15jif")
+Name = "Multishot"
+Icon = ExtResource("1_1akxk")
+Description = "Increases chance to fire multiple arrows"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

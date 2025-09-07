@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://bjv5i2ynqf33"]
+
+[ext_resource type="Texture2D" uid="uid://dbfe6tduvkvm8" path="res://Assets/PowerupIcons/GateShooting.png" id="1_bf8h4"]
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_moll6"]
+
+[resource]
+script = ExtResource("1_moll6")
+Name = "Gate Shooting"
+Icon = ExtResource("1_bf8h4")
+Description = "Allows the player to shoot gates to increase their value"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

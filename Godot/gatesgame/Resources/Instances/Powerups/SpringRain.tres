@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://4841tdhigdqg"]
+
+[ext_resource type="Texture2D" uid="uid://hqqrocat0kwp" path="res://Assets/PowerupIcons/420_Nature_Ranged.png" id="1_dh4jr"]
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_lgfc5"]
+
+[resource]
+script = ExtResource("1_lgfc5")
+Name = "Spring Rain"
+Icon = ExtResource("1_dh4jr")
+Description = "Unlocks the spring rain attack"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

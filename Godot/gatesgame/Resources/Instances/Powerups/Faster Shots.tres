@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://dcpt8a1xbqi1g"]
+
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_bm2x8"]
+[ext_resource type="Texture2D" uid="uid://3nrilqwj4orf" path="res://Assets/PowerupIcons/504_Bowman_QuickShot.png" id="1_o6y5r"]
+
+[resource]
+script = ExtResource("1_bm2x8")
+Name = "Faster Shots"
+Icon = ExtResource("1_o6y5r")
+Description = "Decreases time between shots"
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

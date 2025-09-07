@@ -19,7 +19,7 @@ var attack_damage_frame = 14
 signal boss_defeated
 
 func _ready():
-	max_hitpoints = 1000
+	max_hitpoints = 50
 	super()
 	move_speed = -50
 	player_attack_line_x_coordinate = 500
