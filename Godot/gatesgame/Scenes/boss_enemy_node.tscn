@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://b67h1t5nukar3"]
+[gd_scene load_steps=103 format=3 uid="uid://b67h1t5nukar3"]
 
 [ext_resource type="Script" uid="uid://bfd5roqdsm730" path="res://Scripts/boss_enemy_node.gd" id="1_p6w6n"]
 [ext_resource type="Texture2D" uid="uid://h7xbwsvv4tj6" path="res://Assets/EnemySprites/GoblinBoss/Bertha-Sheet.png" id="2_waj5y"]
@@ -114,6 +114,70 @@ region = Rect2(6656, 381, 256, 127)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tun6b"]
 atlas = ExtResource("2_waj5y")
 region = Rect2(6912, 381, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrft1"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(0, 1016, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0prvk"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(256, 1016, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdbrl"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(512, 1016, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ladww"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(768, 1016, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e101l"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(0, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahs7t"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(256, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipa1o"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(512, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr5f7"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(768, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dbwh"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(1024, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtv2p"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(1280, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5tqy"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(1536, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2d1i"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(1792, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g5q8"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(2048, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2udwp"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(2304, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rljg"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(2560, 1270, 256, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d3jl"]
+atlas = ExtResource("2_waj5y")
+region = Rect2(2816, 1270, 256, 127)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
 atlas = ExtResource("2_waj5y")
@@ -420,6 +484,59 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hrft1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0prvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdbrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ladww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e101l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahs7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipa1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr5f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dbwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtv2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5tqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2d1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g5q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2udwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rljg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d3jl")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_344ge")
 }, {
 "duration": 1.0,
@@ -622,10 +739,8 @@ script = ExtResource("1_p6w6n")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48.5)
 sprite_frames = SubResource("SpriteFrames_k12tt")
-animation = &"attacking"
+animation = &"death"
 autoplay = "default"
-frame = 16
-frame_progress = 0.132382
 flip_h = true
 
 [node name="Hurtbox" type="Area2D" parent="."]

@@ -5,7 +5,13 @@
 
 [resource]
 script = ExtResource("1_and2n")
-Name = "Piercing Shot"
-Icon = ExtResource("1_sk6t1")
-Description = "Increases piercing power of arrows"
+name = "Piercing Shot"
+icon = ExtResource("1_sk6t1")
+description = "Shots can pierce multiple enemies"
+modified_stat_key = "PIERCE_COUNT"
+modified_stat_operator = "+"
+modified_stat_value = 1.0
+is_unlock = false
+unlocked_ability_key = ""
+unlocked_cards = Array[ExtResource("1_and2n")]([])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

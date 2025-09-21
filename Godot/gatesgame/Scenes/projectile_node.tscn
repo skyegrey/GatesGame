@@ -51,7 +51,7 @@ frame_progress = 0.27106
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16384
-collision_mask = 16
+collision_mask = 1040
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(17.5, 0.5)

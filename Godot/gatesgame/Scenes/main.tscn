@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://nqh3rmvwkw82"]
+[gd_scene load_steps=23 format=3 uid="uid://nqh3rmvwkw82"]
 
 [ext_resource type="Script" uid="uid://bp3xvmv1rx2py" path="res://Scripts/player_node.gd" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://cyb44puy2imki" path="res://Scripts/main.gd" id="1_kry3j"]
@@ -6,31 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://dhey8i1t6mqhl" path="res://Assets/Backgrounds/temp.png" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://cef3np6egmhui" path="res://Scripts/enemy_manager.gd" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://cqslsgmt7paq4" path="res://Assets/Backgrounds/modal-background.png" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://c35ttspcq8eoy" path="res://Scenes/virtual_joystick_control.gd" id="6_6iyac"]
 [ext_resource type="Script" uid="uid://bpdsafvwf3ys0" path="res://Scripts/boss_fight_display_ui.gd" id="6_21xkr"]
-[ext_resource type="Script" uid="uid://b4n10lmjwb1ks" path="res://Scenes/card_select_ui.gd" id="8_hptm8"]
+[ext_resource type="Script" uid="uid://gfsqgafxkslv" path="res://Scenes/scrolling_background_node.gd" id="6_h1bgf"]
+[ext_resource type="Script" uid="uid://daxmyyr61ubxj" path="res://Scenes/particle_manager.gd" id="6_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://x6r6vm6wyajb" path="res://Assets/Backgrounds/ParalaxBG/1.png" id="7_b3802"]
+[ext_resource type="Texture2D" uid="uid://by2qsesruhk0k" path="res://Assets/Backgrounds/ParalaxBG/2.png" id="8_b3802"]
+[ext_resource type="Script" uid="uid://b4n10lmjwb1ks" path="res://Scripts/card_select_ui.gd" id="8_hptm8"]
+[ext_resource type="Script" uid="uid://vw47o1iypraw" path="res://Scenes/game_over_menu.gd" id="9_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://bpdmofv8qpl72" path="res://Assets/Backgrounds/ParalaxBG/3.png" id="9_fevyy"]
+[ext_resource type="Texture2D" uid="uid://bvekgy2g62g7k" path="res://Assets/UIElements/hp-bar-background.png" id="9_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://dny1cpw3tgiwn" path="res://Assets/UIElements/grey_panel.png" id="9_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://d1pw10d88qgu5" path="res://Assets/Backgrounds/ParalaxBG/4.png" id="10_hibaj"]
+[ext_resource type="Script" uid="uid://b5bqkxef620bk" path="res://Scripts/touch_button.gd" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://ciw388njb315t" path="res://Assets/UIElements/hp-bar-fill.png" id="10_wsu2k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kry3j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kry3j"]
-bg_color = Color(0.34902, 0.34902, 0.34902, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xkr"]
-bg_color = Color(0, 1, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -65,21 +58,27 @@ metadata/_edit_lock_ = true
 [node name="TeamMembers" type="Node2D" parent="Player"]
 
 [node name="GatesManager" type="Node2D" parent="."]
+unique_name_in_owner = true
 process_mode = 1
+visible = false
 y_sort_enabled = true
 script = ExtResource("3_jjvhh")
 metadata/_edit_lock_ = true
 
 [node name="GateSpawnTimer" type="Timer" parent="GatesManager"]
-wait_time = 2.7
+wait_time = 3.0
 autostart = true
+
+[node name="Gates" type="Node2D" parent="GatesManager"]
 
 [node name="ProjectileManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 process_mode = 1
 
 [node name="EnemyManager" type="Node2D" parent="."]
+unique_name_in_owner = true
 process_mode = 1
+visible = false
 script = ExtResource("5_kry3j")
 metadata/_edit_lock_ = true
 
@@ -88,22 +87,117 @@ wait_time = 2.0
 autostart = true
 
 [node name="BossSpawnTimer" type="Timer" parent="EnemyManager"]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
+[node name="Enemies" type="Node2D" parent="EnemyManager"]
+
 [node name="Background" type="Node2D" parent="."]
 process_mode = 1
+visible = false
+script = ExtResource("6_h1bgf")
+scroll_speed = 50.0
+image_size = 360
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 z_index = -2
 position = Vector2(180, 180)
 texture = ExtResource("5_21xkr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
 z_index = -2
-position = Vector2(360, 0)
+position = Vector2(540, 180)
 texture = ExtResource("5_21xkr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+z_index = -2
+position = Vector2(900, 180)
+texture = ExtResource("5_21xkr")
+
+[node name="ParalaxBackground" type="Node2D" parent="."]
+visible = false
+z_index = -3
+
+[node name="layer_1" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("6_h1bgf")
+scroll_speed = 2.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_1"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("7_b3802")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_1"]
+position = Vector2(864, 29)
+texture = ExtResource("7_b3802")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_1"]
+position = Vector2(1440, 29)
+texture = ExtResource("7_b3802")
+
+[node name="layer_2" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("6_h1bgf")
+scroll_speed = 10.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_2"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("8_b3802")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_2"]
+position = Vector2(864, 29)
+texture = ExtResource("8_b3802")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_2"]
+position = Vector2(1440, 29)
+texture = ExtResource("8_b3802")
+
+[node name="layer_3" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("6_h1bgf")
+scroll_speed = 20.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_3"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("9_fevyy")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_3"]
+position = Vector2(864, 29)
+texture = ExtResource("9_fevyy")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_3"]
+position = Vector2(1440, 29)
+texture = ExtResource("9_fevyy")
+
+[node name="layer_4" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("6_h1bgf")
+scroll_speed = 35.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_4"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("10_hibaj")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_4"]
+position = Vector2(864, 29)
+texture = ExtResource("10_hibaj")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_4"]
+position = Vector2(1440, 29)
+texture = ExtResource("10_hibaj")
+
+[node name="ParticleManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_wsu2k")
+
+[node name="VirtualJoystickControl" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_6iyac")
 
 [node name="UI" type="Control" parent="."]
 process_mode = 3
@@ -133,10 +227,8 @@ expand_mode = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 53.0
-grow_horizontal = 2
+offset_right = 640.0
+offset_bottom = 47.0
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
@@ -146,21 +238,40 @@ script = ExtResource("6_21xkr")
 [node name="Hbox" type="VBoxContainer" parent="UI/BossFightDisplayUI"]
 layout_mode = 2
 
-[node name="BossHpBar" type="ProgressBar" parent="UI/BossFightDisplayUI/Hbox"]
-custom_minimum_size = Vector2(0, 15)
+[node name="BossHpBar" type="TextureProgressBar" parent="UI/BossFightDisplayUI/Hbox"]
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_kry3j")
-theme_override_styles/fill = SubResource("StyleBoxFlat_21xkr")
 max_value = 1.0
 step = 0.001
 value = 1.0
-show_percentage = false
+texture_under = ExtResource("9_jkdf5")
+texture_progress = ExtResource("10_wsu2k")
 
 [node name="BossLabel" type="Label" parent="UI/BossFightDisplayUI/Hbox"]
 layout_mode = 2
+theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 16
 text = "Goblin Chieftain"
 horizontal_alignment = 1
+
+[node name="LevelDisplayContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="LevelDisplayLabel" type="Label" parent="UI/LevelDisplayContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Level 1"
 
 [node name="CardSelectUI" type="MarginContainer" parent="UI"]
 layout_mode = 1
@@ -172,7 +283,7 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 6
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 script = ExtResource("8_hptm8")
@@ -199,10 +310,112 @@ text = "[center]Chose an Upgrade"
 [node name="CardDisplayMarginContainer" type="MarginContainer" parent="UI/CardSelectUI/CardSelectUIVbox"]
 layout_mode = 2
 theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/CardSelectUI/CardSelectUIVbox/CardDisplayMarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 14
 alignment = 1
+
+[node name="GameOverMenu" type="MarginContainer" parent="UI"]
+layout_mode = 0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 720.0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 74
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("9_d1ilt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverMenu"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/GameOverMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/GameOverMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Score: idk yet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/GameOverMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/GameOverMenu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="PlayAgainButton" type="NinePatchRect" parent="UI/GameOverMenu/VBoxContainer/MarginContainer/VBoxContainer2"]
+self_modulate = Color(0.4, 0.4, 1, 1)
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_ynf5e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("10_hptm8")
+
+[node name="Label" type="Label" parent="UI/GameOverMenu/VBoxContainer/MarginContainer/VBoxContainer2/PlayAgainButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="NinePatchRect" parent="UI/GameOverMenu/VBoxContainer/MarginContainer/VBoxContainer2"]
+self_modulate = Color(0.4, 0.4, 1, 1)
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_ynf5e")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("10_hptm8")
+
+[node name="Label" type="Label" parent="UI/GameOverMenu/VBoxContainer/MarginContainer/VBoxContainer2/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeDisplay" type="MarginContainer" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+
+[node name="RoundTimeRemainingLabel" type="Label" parent="UI/TimeDisplay"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "2:00"
+horizontal_alignment = 1
+vertical_alignment = 1

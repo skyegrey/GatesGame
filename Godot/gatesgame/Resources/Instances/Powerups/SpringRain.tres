@@ -5,7 +5,13 @@
 
 [resource]
 script = ExtResource("1_lgfc5")
-Name = "Spring Rain"
-Icon = ExtResource("1_dh4jr")
-Description = "Unlocks the spring rain attack"
+name = "Spring Rain"
+icon = ExtResource("1_dh4jr")
+description = "Unlocks the Spring Rain ability"
+modified_stat_key = ""
+modified_stat_operator = ""
+modified_stat_value = 0.0
+is_unlock = true
+unlocked_ability_key = "SPRING_RAIN"
+unlocked_cards = Array[ExtResource("1_lgfc5")]([])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

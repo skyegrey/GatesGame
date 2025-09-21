@@ -5,7 +5,13 @@
 
 [resource]
 script = ExtResource("1_q5wnt")
-Name = "Gate Spawning"
-Icon = ExtResource("1_6jatm")
-Description = "Increases frequency of gate spawns"
+name = "Gate Spawning"
+icon = ExtResource("1_6jatm")
+description = "Gates Spawn more often"
+modified_stat_key = "GATE_SPAWN_RATE"
+modified_stat_operator = "+"
+modified_stat_value = 0.95
+is_unlock = false
+unlocked_ability_key = ""
+unlocked_cards = Array[ExtResource("1_q5wnt")]([])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

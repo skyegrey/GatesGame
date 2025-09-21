@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://nmyvs68jhq7s"]
+
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_asv4k"]
+[ext_resource type="Texture2D" uid="uid://dbfe6tduvkvm8" path="res://Assets/PowerupIcons/GateShooting.png" id="1_baemc"]
+
+[resource]
+script = ExtResource("1_asv4k")
+name = "Gate Shooting"
+icon = ExtResource("1_baemc")
+description = "Gates level up faster"
+modified_stat_key = "GATE_LEVEL_MODIFIER"
+modified_stat_operator = "+"
+modified_stat_value = 0.0
+is_unlock = true
+unlocked_ability_key = "GATE_SHOOTING"
+unlocked_cards = Array[ExtResource("1_asv4k")]([])
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

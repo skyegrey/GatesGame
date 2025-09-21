@@ -1,0 +1,132 @@
+[gd_scene load_steps=18 format=3 uid="uid://b271vepno5w4c"]
+
+[ext_resource type="Script" uid="uid://dkpg0c3p78jha" path="res://Scripts/tornado.gd" id="1_ijm4g"]
+[ext_resource type="Texture2D" uid="uid://b3mdfonhuti0g" path="res://Assets/Projectiles/tornado.png" id="2_lw5ai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijm4g"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(128, 192, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw5ai"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(256, 192, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ktq"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(384, 192, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holgd"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(0, 288, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwhoe"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(128, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcot5"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(256, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xiqm"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(384, 96, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13pl0"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(0, 192, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wr7m"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra4gv"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5w41"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(256, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7cna"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(384, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1nvk"]
+atlas = ExtResource("2_lw5ai")
+region = Rect2(0, 96, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0ktq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijm4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw5ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ktq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_holgd")
+}],
+"loop": true,
+"name": &"fizzle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwhoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcot5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xiqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13pl0")
+}],
+"loop": true,
+"name": &"full_spin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wr7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5w41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7cna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1nvk")
+}],
+"loop": false,
+"name": &"to_tornado",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijm4g"]
+size = Vector2(26, 36)
+
+[node name="TornadoNode" type="Node2D"]
+script = ExtResource("1_ijm4g")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m0ktq")
+animation = &"full_spin"
+autoplay = "to_tornado"
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16384
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(6, 14)
+shape = SubResource("RectangleShape2D_ijm4g")

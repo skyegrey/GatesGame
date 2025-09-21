@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs41ufyjffrvf"]
+
+[ext_resource type="Texture2D" uid="uid://dny1cpw3tgiwn" path="res://Assets/UIElements/grey_panel.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://b0ael0fr8hcgd" path="res://Scenes/main_menu.gd" id="1_ce3w2"]
+[ext_resource type="Script" uid="uid://b5bqkxef620bk" path="res://Scripts/touch_button.gd" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://dhey8i1t6mqhl" path="res://Assets/Backgrounds/temp.png" id="3_ce3w2"]
+[ext_resource type="Script" uid="uid://gfsqgafxkslv" path="res://Scenes/scrolling_background_node.gd" id="4_n45e2"]
+[ext_resource type="Texture2D" uid="uid://x6r6vm6wyajb" path="res://Assets/Backgrounds/ParalaxBG/1.png" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://by2qsesruhk0k" path="res://Assets/Backgrounds/ParalaxBG/2.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://bpdmofv8qpl72" path="res://Assets/Backgrounds/ParalaxBG/3.png" id="8_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://d1pw10d88qgu5" path="res://Assets/Backgrounds/ParalaxBG/4.png" id="9_t1dhk"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_ce3w2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_constants/margin_top = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Gatescroller"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EmbarkButton" type="NinePatchRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(0.4, 0.4, 1, 1)
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_28flt")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("2_1ehe0")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EmbarkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Embark"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="Node2D" parent="."]
+process_mode = 1
+script = ExtResource("4_n45e2")
+scroll_speed = 35.0
+image_size = 360
+
+[node name="BGSprite1" type="Sprite2D" parent="Background"]
+z_index = -2
+position = Vector2(180, 180)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("3_ce3w2")
+
+[node name="BGSprite2" type="Sprite2D" parent="Background"]
+z_index = -2
+position = Vector2(540, 180)
+texture = ExtResource("3_ce3w2")
+
+[node name="BGSprite3" type="Sprite2D" parent="Background"]
+z_index = -2
+position = Vector2(900, 180)
+texture = ExtResource("3_ce3w2")
+
+[node name="ParalaxBackground" type="Node2D" parent="."]
+z_index = -3
+
+[node name="layer_1" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("4_n45e2")
+scroll_speed = 2.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_1"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("6_trj04")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_1"]
+position = Vector2(864, 29)
+texture = ExtResource("6_trj04")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_1"]
+position = Vector2(1440, 29)
+texture = ExtResource("6_trj04")
+
+[node name="layer_2" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("4_n45e2")
+scroll_speed = 10.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_2"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("7_16hvj")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_2"]
+position = Vector2(864, 29)
+texture = ExtResource("7_16hvj")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_2"]
+position = Vector2(1440, 29)
+texture = ExtResource("7_16hvj")
+
+[node name="layer_3" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("4_n45e2")
+scroll_speed = 20.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_3"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("8_vr1f0")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_3"]
+position = Vector2(864, 29)
+texture = ExtResource("8_vr1f0")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_3"]
+position = Vector2(1440, 29)
+texture = ExtResource("8_vr1f0")
+
+[node name="layer_4" type="Node2D" parent="ParalaxBackground"]
+script = ExtResource("4_n45e2")
+scroll_speed = 35.0
+image_size = 576
+
+[node name="sprite_1" type="Sprite2D" parent="ParalaxBackground/layer_4"]
+position = Vector2(288, 29)
+scale = Vector2(1.001, 1)
+texture = ExtResource("9_t1dhk")
+
+[node name="sprite_2" type="Sprite2D" parent="ParalaxBackground/layer_4"]
+position = Vector2(864, 29)
+texture = ExtResource("9_t1dhk")
+
+[node name="sprite_3" type="Sprite2D" parent="ParalaxBackground/layer_4"]
+position = Vector2(1440, 29)
+texture = ExtResource("9_t1dhk")

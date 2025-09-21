@@ -1,11 +1,17 @@
 [gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://b82og2gasx21s"]
 
-[ext_resource type="Texture2D" uid="uid://cmkbp87sbtsst" path="res://Assets/PowerupIcons/507_Bowman_Dexterity_B.png" id="1_1akxk"]
+[ext_resource type="Texture2D" uid="uid://bdq6khq1hws64" path="res://Assets/PowerupIcons/505_Bowman_DoubleShot.png" id="1_1akxk"]
 [ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_15jif"]
 
 [resource]
 script = ExtResource("1_15jif")
-Name = "Multishot"
-Icon = ExtResource("1_1akxk")
-Description = "Increases chance to fire multiple arrows"
+name = "Multishot"
+icon = ExtResource("1_1akxk")
+description = "Increases chance of firing multiple arrows at once"
+modified_stat_key = "MULTISHOT_CHANCE"
+modified_stat_operator = "+"
+modified_stat_value = 0.2
+is_unlock = false
+unlocked_ability_key = ""
+unlocked_cards = Array[ExtResource("1_15jif")]([])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://bjv5i2ynqf33"]
+[gd_resource type="Resource" script_class="Powerup" load_steps=4 format=3 uid="uid://bjv5i2ynqf33"]
 
 [ext_resource type="Texture2D" uid="uid://dbfe6tduvkvm8" path="res://Assets/PowerupIcons/GateShooting.png" id="1_bf8h4"]
 [ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_moll6"]
+[ext_resource type="Resource" uid="uid://nmyvs68jhq7s" path="res://Resources/Instances/Powerups/ImprovedGateShooting.tres" id="3_ehfye"]
 
 [resource]
 script = ExtResource("1_moll6")
-Name = "Gate Shooting"
-Icon = ExtResource("1_bf8h4")
-Description = "Allows the player to shoot gates to increase their value"
+name = "Gate Shooting"
+icon = ExtResource("1_bf8h4")
+description = "Allows shooting gates to increase their value"
+modified_stat_key = ""
+modified_stat_operator = ""
+modified_stat_value = 0.0
+is_unlock = true
+unlocked_ability_key = "GATE_SHOOTING"
+unlocked_cards = Array[ExtResource("1_moll6")]([ExtResource("3_ehfye")])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

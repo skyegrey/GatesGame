@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://dcpt8a1xbqi1g"]
+
+[ext_resource type="Texture2D" uid="uid://3nrilqwj4orf" path="res://Assets/PowerupIcons/504_Bowman_QuickShot.png" id="1_0vhku"]
+[ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="2_hqblu"]
+
+[resource]
+script = ExtResource("2_hqblu")
+name = "Faster Shots"
+icon = ExtResource("1_0vhku")
+description = "Increase fire rate of shots"
+modified_stat_key = "FIRE_RATE"
+modified_stat_operator = "*"
+modified_stat_value = 0.9
+is_unlock = false
+unlocked_ability_key = ""
+unlocked_cards = Array[ExtResource("2_hqblu")]([])
+metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

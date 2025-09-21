@@ -15,11 +15,7 @@ var attack_damage_frame = 14
 # Children References
 @onready var attack_hitbox = $AttackHitbox
 
-# Signals
-signal boss_defeated
-
 func _ready():
-	max_hitpoints = 50
 	super()
 	move_speed = -50
 	player_attack_line_x_coordinate = 500
@@ -58,9 +54,11 @@ func _physics_process(delta):
 
 func _change_state(new_state: States):
 	state = new_state
-	if state == States.PLAYING_INTRO:
+	if state == States.DEAD:
+		for connected_signal in sprite.animation_finished.get_connections():
+			sprite.animation_finished.disconnect(connected_signal['callable'])
+	elif state == States.PLAYING_INTRO:
 		sprite.play("intro")
-		boss_fight_display_ui.visible = true
 		sprite.animation_finished.connect(
 			_change_state.bind(States.MOVING_TO_ATTACK), 
 			CONNECT_ONE_SHOT
@@ -107,5 +105,4 @@ func _update_boss_fight_display():
 
 func _die():
 	boss_fight_display_ui.visible = false
-	boss_defeated.emit()
 	super()

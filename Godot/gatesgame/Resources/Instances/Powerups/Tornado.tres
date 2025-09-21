@@ -5,7 +5,13 @@
 
 [resource]
 script = ExtResource("1_l0046")
-Name = "Tornado"
-Icon = ExtResource("1_hacmr")
-Description = "Unlocks a powerful Tornado attack"
+name = "Tornado"
+icon = ExtResource("1_hacmr")
+description = "Unlocks shooting a Tornado"
+modified_stat_key = ""
+modified_stat_operator = ""
+modified_stat_value = 0.0
+is_unlock = true
+unlocked_ability_key = "TORNADO"
+unlocked_cards = Array[ExtResource("1_l0046")]([])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

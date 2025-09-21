@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bqae1urhpcd4m" path="res://Assets/Backgrounds/grey_panel.png" id="1_mipqx"]
 [ext_resource type="Texture2D" uid="uid://cmkbp87sbtsst" path="res://Assets/PowerupIcons/507_Bowman_Dexterity_B.png" id="2_grari"]
-[ext_resource type="Script" uid="uid://bp2f7nmaopu27" path="res://Scenes/powerup_card.gd" id="2_moysd"]
+[ext_resource type="Script" uid="uid://bp2f7nmaopu27" path="res://Scripts/powerup_card.gd" id="2_moysd"]
 
 [node name="CardBackground" type="NinePatchRect"]
 self_modulate = Color(0.388235, 0.607843, 1, 1)
 custom_minimum_size = Vector2(150, 200)
+mouse_filter = 0
 texture = ExtResource("1_mipqx")
 patch_margin_left = 5
 patch_margin_top = 5
@@ -21,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
@@ -28,6 +30,7 @@ theme_override_constants/margin_bottom = 12
 
 [node name="CardInformationVBox" type="VBoxContainer" parent="CardMarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="CardName" type="Label" parent="CardMarginContainer/CardInformationVBox"]
@@ -40,6 +43,7 @@ autowrap_mode = 3
 [node name="PowerupIcon" type="TextureRect" parent="CardMarginContainer/CardInformationVBox"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_grari")
 stretch_mode = 5
 

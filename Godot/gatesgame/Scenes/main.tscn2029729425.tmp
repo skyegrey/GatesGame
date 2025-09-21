@@ -1,0 +1,208 @@
+[gd_scene load_steps=13 format=3 uid="uid://nqh3rmvwkw82"]
+
+[ext_resource type="Script" uid="uid://bp3xvmv1rx2py" path="res://Scripts/player_node.gd" id="1_bo1nx"]
+[ext_resource type="Script" uid="uid://cyb44puy2imki" path="res://Scripts/main.gd" id="1_kry3j"]
+[ext_resource type="Script" uid="uid://cqxv1khbgt31l" path="res://Scripts/gates_manager.gd" id="3_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dhey8i1t6mqhl" path="res://Assets/Backgrounds/temp.png" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://cef3np6egmhui" path="res://Scripts/enemy_manager.gd" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://cqslsgmt7paq4" path="res://Assets/Backgrounds/modal-background.png" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://bpdsafvwf3ys0" path="res://Scripts/boss_fight_display_ui.gd" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://b4n10lmjwb1ks" path="res://Scenes/card_select_ui.gd" id="8_hptm8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kry3j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21xkr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kry3j"]
+bg_color = Color(0.34902, 0.34902, 0.34902, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21xkr"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+y_sort_enabled = true
+script = ExtResource("1_kry3j")
+
+[node name="Player" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+y_sort_enabled = true
+script = ExtResource("1_bo1nx")
+
+[node name="Followpoint" type="Marker2D" parent="Player"]
+position = Vector2(125, 232)
+
+[node name="PlayerHitbox" type="Area2D" parent="Player/Followpoint"]
+collision_mask = 32
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Followpoint/PlayerHitbox"]
+shape = SubResource("CapsuleShape2D_kry3j")
+
+[node name="GatesDetectionArea" type="Area2D" parent="Player/Followpoint"]
+collision_layer = 2
+collision_mask = 512
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Followpoint/GatesDetectionArea"]
+shape = SubResource("CapsuleShape2D_21xkr")
+metadata/_edit_lock_ = true
+
+[node name="TeamMembers" type="Node2D" parent="Player"]
+
+[node name="GatesManager" type="Node2D" parent="."]
+process_mode = 1
+y_sort_enabled = true
+script = ExtResource("3_jjvhh")
+metadata/_edit_lock_ = true
+
+[node name="GateSpawnTimer" type="Timer" parent="GatesManager"]
+wait_time = 2.7
+autostart = true
+
+[node name="ProjectileManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+
+[node name="EnemyManager" type="Node2D" parent="."]
+process_mode = 1
+script = ExtResource("5_kry3j")
+metadata/_edit_lock_ = true
+
+[node name="WaveTimer" type="Timer" parent="EnemyManager"]
+wait_time = 2.0
+autostart = true
+
+[node name="BossSpawnTimer" type="Timer" parent="EnemyManager"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Background" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -2
+position = Vector2(180, 180)
+texture = ExtResource("5_21xkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sprite2D"]
+z_index = -2
+position = Vector2(360, 0)
+texture = ExtResource("5_21xkr")
+
+[node name="UI" type="Control" parent="."]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModalBackground" type="TextureRect" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_6bp64")
+expand_mode = 1
+
+[node name="BossFightDisplayUI" type="MarginContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 53.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("6_21xkr")
+
+[node name="Hbox" type="VBoxContainer" parent="UI/BossFightDisplayUI"]
+layout_mode = 2
+
+[node name="BossHpBar" type="ProgressBar" parent="UI/BossFightDisplayUI/Hbox"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_kry3j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_21xkr")
+max_value = 1.0
+step = 0.001
+value = 1.0
+show_percentage = false
+
+[node name="BossLabel" type="Label" parent="UI/BossFightDisplayUI/Hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Goblin Chieftain"
+horizontal_alignment = 1
+
+[node name="CardSelectUI" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 360.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+script = ExtResource("8_hptm8")
+
+[node name="CardSelectUIVbox" type="VBoxContainer" parent="UI/CardSelectUI"]
+layout_mode = 2
+
+[node name="TextLabelsVbox" type="VBoxContainer" parent="UI/CardSelectUI/CardSelectUIVbox"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/CardSelectUI/CardSelectUIVbox/TextLabelsVbox"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center] Level Complete!"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI/CardSelectUI/CardSelectUIVbox/TextLabelsVbox"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Chose an Upgrade"
+
+[node name="CardDisplayMarginContainer" type="MarginContainer" parent="UI/CardSelectUI/CardSelectUIVbox"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CardSelectUI/CardSelectUIVbox/CardDisplayMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1

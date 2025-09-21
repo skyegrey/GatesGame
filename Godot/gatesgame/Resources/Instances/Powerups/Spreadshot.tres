@@ -1,11 +1,17 @@
 [gd_resource type="Resource" script_class="Powerup" load_steps=3 format=3 uid="uid://bdcn5lyo1smvq"]
 
 [ext_resource type="Script" uid="uid://b4qfpyhmqpv2m" path="res://Resources/Classes/Powerup.gd" id="1_7iifo"]
-[ext_resource type="Texture2D" uid="uid://bdq6khq1hws64" path="res://Assets/PowerupIcons/505_Bowman_DoubleShot.png" id="1_rgmtw"]
+[ext_resource type="Texture2D" uid="uid://cmkbp87sbtsst" path="res://Assets/PowerupIcons/507_Bowman_Dexterity_B.png" id="1_rgmtw"]
 
 [resource]
 script = ExtResource("1_7iifo")
-Name = "Spreadshot"
-Icon = ExtResource("1_rgmtw")
-Description = "Increases chance of firing shots in a spread"
+name = "Spreadshot"
+icon = ExtResource("1_rgmtw")
+description = "Chance to shot a spreading shot"
+modified_stat_key = "SPREADSHOT_CHANCE"
+modified_stat_operator = "plus"
+modified_stat_value = 0.2
+is_unlock = false
+unlocked_ability_key = ""
+unlocked_cards = Array[ExtResource("1_7iifo")]([])
 metadata/_custom_type_script = "uid://b4qfpyhmqpv2m"

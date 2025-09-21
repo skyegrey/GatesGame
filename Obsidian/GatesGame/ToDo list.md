@@ -35,59 +35,100 @@
 		- [x] Boss HP Bar
 		- [x] On boss spawn, display HP bar (not before)
 		- [x] On boss defeat, complete level
-	- [ ] Replace HP Bar texture with the stuff from txpeng that looks way better in every way and is all pixely and cool 
-	- [ ] Rougelike elements (you must choose from 3 things)
+	- [x] Rougelike elements (you must choose from 3 things)
 		- [x] Cards on boss defeat
 		- [x] Powerup Icons
-		- [ ] Powerups
-			- [ ] Multishot Chance (50 -> 200%)
-			- [ ] AoE Shot Chance (50 -> 200%)
-			- [ ] Shot cooldown
-			- [ ] Piercing
-			- [ ] Different attacks
-				- [ ] Tornado
-				- [ ] Spring Rain
-			- [ ] Gate upgrades
-				- [ ] Gate Shooting
-				- [ ] Gate Base amount
-			- [ ] Slowing Shot
+		- [x] Ability to click on cards
+		- [x] Powerups
+			- [x] Multishot Chance (50 -> 200%)
+			- [x] AoE Shot Chance (50 -> 200%)
+			- [x] Shot cooldown
+			- [x] Piercing
+			- [x] Different attacks
+				- [x] Tornado
+				- [x] Spring Rain
+					- [x] Chance to fire attack -> I'm not sold on this... Maybe a button feels better?
+					- [x] Display attack @ edge of field
+					- [x] Hitbox spawning
+					- [x] Damage to enemies
+			- [x] Gate upgrades
+				- [x] Gate Shooting
+				- [x] Faster Gates
 		- [x] Card rolling
-		- [ ] Card selection
-		- [ ] Application of powerup
-	- [ ] Screen scale with window scale
-	- [ ] cleanup tween releases
-	- [ ] Balancing
-	- [ ] Multiple gates spawn at once
-	- [ ] Negative gates
-	- [ ] Game Over screen
-	- [ ] Main Menu Screen
-	- [ ] Enemies play death animation on kill
+		- [x] Card selection
+		- [x] Application of powerup
+		- [x] Card Hookups
+		- [x] Card clearing on unlocked ability
+	- [x] New level after powerup selected
+	- [x] Screen scale with window scale
+	- [x] cleanup tween releases
+	- [x] Multiple gates spawn at once
+	- [x] Negative gates
+		- [x] Negative Roll
+		- [x] Red gate
+	- [x] Game Over screen
+		- [x] Background scroll pauses (its not moving yet anyways)
+		- [x] Play again button
+		- [x] Main Menu button
+		- [x] Click detection
+	- [x] Main Menu Screen
+		- [x] Title
+		- [x] Embark button (@pyome gotta be fancy ig)
+		- [x] Background scroll
+		- [ ] Twitch link? ew gross shut up
+	- [x] Enemies play death animation on kill
+	- [x] Switch mouse input to touchscreen emulated input
+		- [x] Menu inputs
+		- [x] Virtual joystick (ty @nimfurnance)
+	- [x] Level display
+	- [x] Level timer
+	- [x] Fix bug where dead enemies can still block shots
+	- [x] Create Balancing Levers
+		- [x] Enemy Manager tracks level & scales difficulty
+		- [x] Difficulty scaling on enemies spawned
+		- [x] Difficulty scaling on Boss HP
+		- [x] Gate base cooldown
+		- [x] Negative Gate Values
+		- [x] Positive Gate Values
+		- [x] Gate Shooting Curve
+		- [x] First set of gates always has a positive number
 
 - Visual
 	- [x] Decide gate & number placement
 	- [x] Replace the gates with the much nicer version ty @txpeng
-	- Gate numbers -> txpeng
+	- [x]  Gate numbers -> txpeng
 	- [x] Grass
-	- [ ] Background
 
 - Sauce (pyome please save me <3)
-	- [ ] Replace HB bar with the SUPER SLICK VERSION (ty @txpeng <3) 
-	- [ ] On hit visual
-	- [ ] Background scroll (ty meisaka :D)
+	- [x] Replace HB bar with the SUPER SLICK VERSION (ty @txpeng <3) 
+	- [x] On hit visual
+	- [x] Background scroll (ty meisaka :D)
+	- [x] Parallax background
 	- [x] Damage flash on hit
 	- [ ] Shot SFX
 	- [ ] Hit SFX
 	- [ ] Gate SFX
 	- [ ] Music
-	- [ ] Fix damage tween overlap?
-	- [ ] Move twoards player in range?
 
 - Release
 	- [ ] Itch.io version
 	- [ ] Play store
 	- [ ] App store
-
 ### Post Release
 
+ - [ ] Self Aggrandizing
+	 - [ ] Link twitch in the game (ty @pokepetter)
+		 - [ ] figure out how to do in app links...?
+	 - [ ] Link Patreon on main menu
+
+- Playetest Feedback
+	- [ ] Despawn adjacent gates on gate entrance (better feedback that you can't walk through more than one gate)
+
+- [ ] Test movement controls on different devices
 - [ ] Different character gates
 - [ ] Different enemy types
+- [ ] Check resolution scaling on different devices
+
+
+
+we love the old pa's lam system 

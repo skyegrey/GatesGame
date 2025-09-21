@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="GatesGame"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="uid://bs41ufyjffrvf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [gui]
 
@@ -43,6 +45,7 @@ character_move_down={
 2d_physics/layer_5="EnemyHurtbox"
 2d_physics/layer_6="EnemyAttackHitbox"
 2d_physics/layer_10="GateArea"
+2d_physics/layer_11="GateUpgradeHitbox"
 2d_physics/layer_15="PlayerProjectile"
 
 [rendering]

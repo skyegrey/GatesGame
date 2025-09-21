@@ -1,15 +1,10 @@
-class_name CardSelectUI extends MarginContainer
-
-@export var animation_time = .5 # seconds
+class_name CardSelectUI extends UIMenu
 
 @onready var card_container = $CardSelectUIVbox/CardDisplayMarginContainer/HBoxContainer
 
 const POWERUP_CARD = preload("res://Scenes/powerup_card.tscn")
 
-func animate_in():
-	var tween = get_tree().create_tween()
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(self, "position:y", 0, animation_time)
+signal powerup_clicked
 
 func reset_cards():
 	for card in card_container.get_children():
@@ -19,3 +14,8 @@ func set_card(powerup: Powerup):
 	var new_powerup_card = POWERUP_CARD.instantiate()
 	card_container.add_child(new_powerup_card)
 	new_powerup_card.set_card_resource(powerup)
+	new_powerup_card.powerup_clicked.connect(_on_powerup_clicked)
+
+func _on_powerup_clicked(powerup: Powerup):
+	reset_cards()
+	powerup_clicked.emit(powerup)
